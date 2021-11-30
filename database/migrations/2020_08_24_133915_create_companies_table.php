@@ -30,7 +30,7 @@ class CreateCompaniesTable extends Migration
             ->onDelete('cascade');
 
              $table->foreign('employer_id')
-            ->references('id')->on('users')
+            ->references('id')->on('employers')
             ->onDelete('cascade');
         });
     }

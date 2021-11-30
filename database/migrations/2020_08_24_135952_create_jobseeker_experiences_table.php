@@ -25,7 +25,7 @@ class CreateJobseekerExperiencesTable extends Migration
             $table->timestamps();
 
             $table->foreign('jobseeker_id')
-            ->references('id')->on('users')
+            ->references('id')->on('jobseekers')
             ->onDelete('cascade');
 
              $table->foreign('job_position_id')

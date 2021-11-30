@@ -17,9 +17,6 @@ class CreateApplypostRecordsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('job_vacancy_id');
             $table->unsignedBigInteger('jobseeker_id');
-            $table->date('apply_date');
-            $table->string('expected_salary');
-            $table->string('status');
             $table->timestamps();
 
             $table->foreign('job_vacancy_id')
@@ -27,7 +24,7 @@ class CreateApplypostRecordsTable extends Migration
             ->onDelete('cascade');
 
             $table->foreign('jobseeker_id')
-            ->references('id')->on('users')
+            ->references('id')->on('jobseekers')
             ->onDelete('cascade');
         });
     }

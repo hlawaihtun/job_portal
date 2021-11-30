@@ -16,13 +16,16 @@ class CreateJobseekerSkillsTable extends Migration
         Schema::create('jobseeker_skills', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('jobseeker_id');
+            $table->unsignedBigInteger('skill_id');
             $table->string('name');
-            $table->string('skill_level');
             $table->timestamps();
 
+            $table->foreign('skill_id')
+            ->references('id')->on('skills')
+            ->onDelete('cascade');
 
             $table->foreign('jobseeker_id')
-            ->references('id')->on('users')
+            ->references('id')->on('jobseekers')
             ->onDelete('cascade');
         });
     }

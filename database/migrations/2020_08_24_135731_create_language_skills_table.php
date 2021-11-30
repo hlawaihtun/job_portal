@@ -17,11 +17,12 @@ class CreateLanguageSkillsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('jobseeker_id');
             $table->string('name');
-            $table->string('language_skill_level');
+            $table->integer('spoken_skill');
+            $table->integer('written_skill');
             $table->timestamps();
 
             $table->foreign('jobseeker_id')
-            ->references('id')->on('users')
+            ->references('id')->on('jobseekers')
             ->onDelete('cascade');
         });
     }

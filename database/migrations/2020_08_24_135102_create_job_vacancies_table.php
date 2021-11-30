@@ -16,6 +16,7 @@ class CreateJobVacanciesTable extends Migration
         Schema::create('job_vacancies', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('company_id');
+            $table->string('job_title');
             $table->unsignedBigInteger('job_type_id');
             $table->unsignedBigInteger('job_position_id');
             $table->string('job_description');
@@ -24,7 +25,6 @@ class CreateJobVacanciesTable extends Migration
             $table->string('job_location');
             $table->string('job_request');
             $table->date('last_apply_date');
-            $table->date('job_post_date');
             $table->string('is_active');
             $table->timestamps();
 

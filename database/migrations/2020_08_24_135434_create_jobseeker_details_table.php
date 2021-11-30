@@ -20,13 +20,12 @@ class CreateJobseekerDetailsTable extends Migration
             $table->string('qualification_level');
             $table->date('graduation_date');
             $table->string('specialization_major');
-            $table->date('dob');
             $table->string('nationality');
             $table->string('additional_info');
             $table->timestamps();
 
             $table->foreign('jobseeker_id')
-            ->references('id')->on('users')
+            ->references('id')->on('jobseekers')
             ->onDelete('cascade');
         });
     }
